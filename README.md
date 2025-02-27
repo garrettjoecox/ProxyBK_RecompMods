@@ -27,7 +27,7 @@ Mods can also be made with newer versions of the Banjo-Kazooie decompilation ins
 To update the commit of the decompilation that you're targeting, follow these steps:
 * Build the [N64Recomp](https://github.com/N64Recomp/N64Recomp) repo and copy the N64Recomp executable to the root of this repository.
 * Build the version of the Banjo-Kazooie decompilation that you want to update to and copy the resulting .elf file to the root of this repository.
-* Update the `mm-decomp` submodule in your clone of this repo to point to the commit you built in the previous step.
+* Update the `bk-decomp` submodule in your clone of this repo to point to the commit you built in the previous step.
 * Run `N64Recomp generate_symbols.toml --dump-context`
 * Rename `dump.toml` and `data_dump.toml` to `bk.us.rev1.syms.toml` and `bk.us.rev1.datasyms.toml` respectively.
   * Place both files in the `BanjoRecompSyms` folder.
