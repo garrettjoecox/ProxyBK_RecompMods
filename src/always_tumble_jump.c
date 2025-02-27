@@ -9,10 +9,6 @@ RECOMP_PATCH bool player_isFallTumbling(void) {
     recomp_printf("Tumbling\n");
     /*s32 damage;
 
-    if (randf() < 0.005f) {
-        return TRUE;
-    }
-
     if (player_isStable()) {
         return FALSE;
     }
