@@ -1,0 +1,57 @@
+[manifest]
+id = "ProxyMM_Cheats"
+version = "0.0.1"
+display_name = "Cheats"
+description =  """
+Various Cheats
+- Moon Jump
+- Speed Modifier
+- Infinite Health
+- Infinite Ammo
+"""
+short_description = "Various Cheats"
+authors = [ "ProxySaw" ]
+game_id = "bk"
+minimum_recomp_version = "0.0.1"
+dependencies = []
+optional_dependencies = []
+native_libraries = []
+
+[inputs]
+elf_path = "../../build/packages/Cheats/mod.elf"
+mod_filename = "ProxyBK_Cheats"
+func_reference_syms_file = "../../BanjoRecompSyms/bk.us.rev0.syms.toml"
+data_reference_syms_files = [ "../../BanjoRecompSyms/bk.us.rev0.datasyms.toml" ]
+additional_files = [ "thumb.png" ]
+
+[[manifest.config_options]]
+id = "moon_jump"
+name = "Moon Jump"
+description = "Hold L to levitate"
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "speed_modifier"
+name = "Speed Modifier"
+description = "Hold R to increase speed"
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "infinite_health"
+name = "Infinite Health"
+description = "Max out Banjo's health"
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "infinite_ammo"
+name = "Infinite Ammo"
+description = "Max out Banjo's eggs, red feathers, and gold feathers"
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"

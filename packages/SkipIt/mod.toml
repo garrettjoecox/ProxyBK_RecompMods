@@ -1,0 +1,57 @@
+[manifest]
+id = "ProxyMM_SkipIt"
+version = "0.0.1"
+display_name = "SkipIt"
+description =  """
+Various cutscene skips and speedups
+- Skip to file select
+- Skip cutscenes
+- Speedup or Skip most dialog
+- Skip bottles interactions
+"""
+short_description = "Various cutscene skips and speedups"
+authors = [ "ProxySaw" ]
+game_id = "bk"
+minimum_recomp_version = "0.0.1"
+dependencies = []
+optional_dependencies = []
+native_libraries = []
+
+[inputs]
+elf_path = "../../build/packages/SkipIt/mod.elf"
+mod_filename = "ProxyBK_SkipIt"
+func_reference_syms_file = "../../BanjoRecompSyms/bk.us.rev0.syms.toml"
+data_reference_syms_files = [ "../../BanjoRecompSyms/bk.us.rev0.datasyms.toml" ]
+additional_files = [ "thumb.png" ]
+
+[[manifest.config_options]]
+id = "skip_cutscenes"
+name = "Skip Cutscenes"
+description = "Skip all cutscenes"
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "skip_to_file_select"
+name = "Boot to File Select"
+description = "Boot straight to the file select menu, skipping all logos and intro cutscenes"
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "skip_text"
+name = "Text Speedup"
+description = "Speed up all in-game text"
+type = "Enum"
+options = [ "Off", "Always Fast", "Skip All" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "skip_bottles"
+name = "Skip Bottles Interactions"
+description = "As soon as you meet the requirements, you'll obtain the abilities without going through Bottles' interactions"
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"

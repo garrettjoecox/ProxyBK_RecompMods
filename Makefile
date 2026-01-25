@@ -1,4 +1,9 @@
 BUILD_DIR := build
+MOD_DIR := packages/$(MOD)
+
+ifeq ($(MOD),)
+$(error Please specify a mod name using the MOD variable)
+endif
 
 # Allow the user to specify the compiler and linker on macOS
 # as Apple Clang does not support MIPS architecture
@@ -13,7 +18,13 @@ else
     LD      ?= ld.lld
 endif
 
-TARGET  := $(BUILD_DIR)/mod.elf
+TARGET  := $(BUILD_DIR)/$(MOD_DIR)/mod.elf
+
+ifeq ($(OS),Windows_NT)
+RECOMP_MOD_TOOL := RecompModTool.exe
+else
+RECOMP_MOD_TOOL := ./RecompModTool
+endif
 
 LDSCRIPT := mod.ld
 ARCHFLAGS := -target mips -mips2 -mabi=32 -O2 -G0 -mno-abicalls -mno-odd-spreg -mno-check-zero-division \
@@ -28,7 +39,7 @@ LDFLAGS  := -nostdlib -T $(LDSCRIPT) -Map $(BUILD_DIR)/mod.map --unresolved-symb
 rwildcard = $(foreach d,$(wildcard $(1:=/*)),$(call rwildcard,$d,$2) $(filter $(subst *,%,$2),$d))
 getdirs = $(sort $(dir $(1)))
 
-C_SRCS := $(call rwildcard,src,*.c)
+C_SRCS := $(call rwildcard,$(MOD_DIR)/src,*.c)
 C_OBJS := $(addprefix $(BUILD_DIR)/, $(C_SRCS:.c=.o))
 C_DEPS := $(addprefix $(BUILD_DIR)/, $(C_SRCS:.c=.d))
 
@@ -40,6 +51,7 @@ all: $(TARGET)
 
 $(TARGET): $(ALL_OBJS) $(LDSCRIPT) | $(BUILD_DIR)
 	$(LD) $(ALL_OBJS) $(LDFLAGS) -o $@
+	$(MAKE) post-build
 
 $(BUILD_DIR) $(BUILD_DIRS):
 ifeq ($(OS),Windows_NT)
@@ -50,6 +62,9 @@ endif
 
 $(C_OBJS): $(BUILD_DIR)/%.o : %.c | $(BUILD_DIRS)
 	$(CC) $(CFLAGS) $(CPPFLAGS) $< -MMD -MF $(@:.o=.d) -c -o $@
+
+post-build: $(TARGET)
+	$(RECOMP_MOD_TOOL) $(MOD_DIR)/mod.toml $(BUILD_DIR)/$(MOD_DIR) && mkdir -p ~/Library/Application\ Support/BanjoRecompiled/mods && cp $(BUILD_DIR)/$(MOD_DIR)/*.nrm ~/Library/Application\ Support/BanjoRecompiled/mods
 
 clean:
 ifeq ($(OS),Windows_NT)
