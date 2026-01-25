@@ -1,12 +1,12 @@
 [manifest]
 id = "ProxyMM_Cheats"
-version = "0.0.1"
+version = "0.0.2"
 display_name = "Cheats"
 description =  """
 Various Cheats
 - Moon Jump
 - Speed Modifier
-- Infinite Health
+- Infinite Health & Lives
 - Infinite Ammo
 """
 short_description = "Various Cheats"
@@ -42,8 +42,8 @@ default = "Off"
 
 [[manifest.config_options]]
 id = "infinite_health"
-name = "Infinite Health"
-description = "Max out Banjo's health"
+name = "Infinite Health & Lives"
+description = "Max out Banjo's health & Lives"
 type = "Enum"
 options = [ "Off", "On" ]
 default = "Off"

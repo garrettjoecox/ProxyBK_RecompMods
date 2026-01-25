@@ -8,5 +8,6 @@ void post_health_func_80295C14(void) {
     if (recomp_get_config_u32("infinite_health")) {
         s32 max_health = item_getCount(ITEM_15_HEALTH_TOTAL);
         if (item_getCount(ITEM_14_HEALTH) < max_health) item_set(ITEM_14_HEALTH, max_health);
+        if (item_getCount(ITEM_16_LIFE) < 8) item_set(ITEM_16_LIFE, 8);
     }
 }
