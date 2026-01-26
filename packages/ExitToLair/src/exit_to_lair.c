@@ -80,16 +80,25 @@ void gcdialog_incrementYPositionModifier() {
     
     if (is_in_level) {
         D_80383010.return_to_lair_disabled = FALSE;
-        D_8036C4E0[0].y = 45;   // RETURN TO GAME
-        D_8036C4E0[1].y = 75;   // EXIT TO WITCH'S LAIR
-        D_8036C4E0[2].y = 105;  // VIEW TOTALS
-        D_8036C4E0[3].y = 135;  // SAVE AND QUIT
+
+        D_8036C4E0[1].delay = 0.1f;
+        D_8036C4E0[2].delay = 0.2f;
+        D_8036C4E0[3].delay = 0.3f;
+        D_8036C4E0[0].y = 45;
+        D_8036C4E0[1].y = 75;
+        D_8036C4E0[2].y = 105;
+        D_8036C4E0[3].y = 135;
+        D_8036C4E0[1].portrait = 5;
     } else {
         D_80383010.return_to_lair_disabled = TRUE;
 
+        D_8036C4E0[1].delay = 0.3f;
+        D_8036C4E0[2].delay = 0.1f;
+        D_8036C4E0[3].delay = 0.2f;
         D_8036C4E0[0].y = 55;
         D_8036C4E0[1].y = -100;
         D_8036C4E0[2].y = 90;
         D_8036C4E0[3].y = 125;
+        D_8036C4E0[1].portrait = 4;
     }
 }

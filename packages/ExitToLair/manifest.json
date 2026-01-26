@@ -1,6 +1,6 @@
 {
     "name": "ExitToLair",
-    "version_number": "0.0.1",
+    "version_number": "0.0.2",
     "website_url": "https://github.com/garrettjoecox/ProxyBK_RecompMods",
     "description": "Exit to Lair option in the pause menu during gameplay.",
     "dependencies": []
