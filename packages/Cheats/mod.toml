@@ -1,13 +1,13 @@
 [manifest]
 id = "ProxyMM_Cheats"
-version = "0.0.2"
+version = "0.0.3"
 display_name = "Cheats"
 description =  """
 Various Cheats
 - Moon Jump
 - Speed Modifier
-- Infinite Health & Lives
-- Infinite Ammo
+- Infinite Health, Ammo, Air, Lives
+- Silly Effect (Bottles Bonus)
 """
 short_description = "Various Cheats"
 authors = [ "ProxySaw" ]
@@ -42,8 +42,16 @@ default = "Off"
 
 [[manifest.config_options]]
 id = "infinite_health"
-name = "Infinite Health & Lives"
-description = "Max out Banjo's health & Lives"
+name = "Infinite Health"
+description = "Max out Banjo's health"
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "infinite_life"
+name = "Infinite Lives"
+description = "Max out Banjo's lives"
 type = "Enum"
 options = [ "Off", "On" ]
 default = "Off"
@@ -55,3 +63,19 @@ description = "Max out Banjo's eggs, red feathers, and gold feathers"
 type = "Enum"
 options = [ "Off", "On" ]
 default = "Off"
+
+[[manifest.config_options]]
+id = "infinite_air"
+name = "Infinite Air"
+description = "Max out Banjo's air meter"
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "silly_effect"
+name = "Silly Effect"
+description = "Various silly visual effects from Bottles Bonus cheat"
+type = "Enum"
+options = [ "Disabled", "Big head", "Big hands/feet", "Big Kazooie", "Small & Long", "Small & Big", "All" ]
+default = "Disabled"
