@@ -112,6 +112,8 @@ void item_set(s32 item, s32 val);
 void item_setMaxCount(s32 item);
 int chmole_learnAbility(Actor *this);
 bool fileProgressFlag_get(enum file_progress_e index);
+enum level_e level_get(void);
+s32 getGameMode(void);
 
 
 extern ChMoleDescription moleTable[];

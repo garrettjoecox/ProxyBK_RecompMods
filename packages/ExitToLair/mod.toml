@@ -1,0 +1,23 @@
+[manifest]
+id = "ProxyMM_ExitToLair"
+version = "0.0.1"
+display_name = "ExitToLair"
+description =  """
+Restores the unused "Exit to Lair" option in the pause menu during gameplay.
+
+I'm aware the option has the wrong initial highlighted state, this will eventually be fixed.
+"""
+short_description = "Exit to Lair option in the pause menu during gameplay."
+authors = [ "ProxySaw" ]
+game_id = "bk"
+minimum_recomp_version = "0.0.1"
+dependencies = []
+optional_dependencies = []
+native_libraries = []
+
+[inputs]
+elf_path = "../../build/packages/ExitToLair/mod.elf"
+mod_filename = "ProxyBK_ExitToLair"
+func_reference_syms_file = "../../BanjoRecompSyms/bk.us.rev0.syms.toml"
+data_reference_syms_files = [ "../../BanjoRecompSyms/bk.us.rev0.datasyms.toml" ]
+additional_files = [ "thumb.png" ]
