@@ -1,0 +1,7 @@
+{
+    "name": "ToggleTrot",
+    "version_number": "0.0.1",
+    "website_url": "https://github.com/garrettjoecox/ProxyBK_RecompMods",
+    "description": "Makes Talon Trot toggleable instead of hold-to-run",
+    "dependencies": []
+}
