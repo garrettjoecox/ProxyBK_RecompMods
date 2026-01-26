@@ -114,6 +114,11 @@ int chmole_learnAbility(Actor *this);
 bool fileProgressFlag_get(enum file_progress_e index);
 enum level_e level_get(void);
 s32 getGameMode(void);
+void player_setTransformation(s32 transformation);
+void baModel_updateModel(void);
+enum transformation_e func_80294A4C(void);
+void func_8029BD44(enum asset_e *anim_id, f32 *anim_duration);
+enum bs_e bs_getIdleState(void);
 
 
 extern ChMoleDescription moleTable[];
