@@ -1,0 +1,32 @@
+[manifest]
+id = "ProxyMM_AbilityAnywhere"
+version = "0.0.1"
+display_name = "AbilityAnywhere"
+description =  """
+Fly or Shock Jump anywhere, no pad needed. Optionally you can require the abilities to be unlocked first.
+
+Flight: Hold L and Press and Release A quickly
+Shock Jump: Hold L and Press and Hold A
+"""
+short_description = "Fly or Shock Jump anywhere, no pad needed"
+authors = [ "ProxySaw" ]
+game_id = "bk"
+minimum_recomp_version = "0.0.1"
+dependencies = []
+optional_dependencies = []
+native_libraries = []
+
+[inputs]
+elf_path = "../../build/packages/AbilityAnywhere/mod.elf"
+mod_filename = "ProxyBK_AbilityAnywhere"
+func_reference_syms_file = "../../BanjoRecompSyms/bk.us.rev0.syms.toml"
+data_reference_syms_files = [ "../../BanjoRecompSyms/bk.us.rev0.datasyms.toml" ]
+additional_files = [ "thumb.png" ]
+
+[[manifest.config_options]]
+id = "require_unlock"
+name = "Require Ability Unlocks"
+description = "If enabled, the player must have unlocked the Shock Jump and Flight abilities to use them anywhere."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"

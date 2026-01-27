@@ -119,9 +119,13 @@ void baModel_updateModel(void);
 enum transformation_e func_80294A4C(void);
 void func_8029BD44(enum asset_e *anim_id, f32 *anim_duration);
 enum bs_e bs_getIdleState(void);
-
+int bakey_newlyReleased(s32 button_indx);
+int bakey_released(s32 button_indx);
+int ability_isUnlocked(enum ability_e uid);
 
 extern ChMoleDescription moleTable[];
 extern PfsManagerControllerData D_80281138[4];
 extern s32 D_802810E0[4][5];
 extern OSContPad pfsManagerContPadData[4];
+extern s32 D_8037D160;
+extern s32 D_8037D164;

@@ -3,9 +3,7 @@
 #include "variables.h"
 #include "recomputils.h"
 #include "core2/statetimer.h"
-
-int bakey_released(s32 button_indx);
-int bakey_newlyReleased(s32 button_indx);
+#include "bkextern.h"
 
 int framesSinceTrotStarted = 0;
 bool holdingZ = FALSE;
