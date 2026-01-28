@@ -7,6 +7,11 @@
 
 RECOMP_HOOK("func_80295C14")
 void pre_func_80295C14(void) {
+    // Prevent transforming while entering/exiting drone state
+    if ((bsDroneEnterSubstate != 0 && bsDroneEnterSubstate != 3) || (D_8037D468 != 0 && D_8037D468 != 3)) {
+        return;
+    }
+
     bool requiresL = recomp_get_config_u32("require_l_to_transform");
 
     bool anyDpadHeld = 

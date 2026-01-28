@@ -122,6 +122,9 @@ enum bs_e bs_getIdleState(void);
 int bakey_newlyReleased(s32 button_indx);
 int bakey_released(s32 button_indx);
 int ability_isUnlocked(enum ability_e uid);
+void fileProgressFlag_set(enum file_progress_e, bool);
+int gcdialog_getCurrentTextId(void);
+int gctransition_done(void);
 
 extern ChMoleDescription moleTable[];
 extern PfsManagerControllerData D_80281138[4];
@@ -130,3 +133,5 @@ extern OSContPad pfsManagerContPadData[4];
 extern s32 D_8037D160;
 extern s32 D_8037D164;
 extern s32 gameNumber;
+extern u8 bsDroneEnterSubstate;
+extern u8 D_8037D468;

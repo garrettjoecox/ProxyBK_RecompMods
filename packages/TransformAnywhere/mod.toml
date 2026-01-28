@@ -1,6 +1,6 @@
 [manifest]
 id = "ProxyMM_TransformAnywhere"
-version = "0.0.1"
+version = "0.0.2"
 display_name = "TransformAnywhere"
 description =  """
 Transform into Mumbo's forms anywhere

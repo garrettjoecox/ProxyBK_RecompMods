@@ -17,7 +17,15 @@ void chmole_update(Actor *this) {
     if (recomp_get_config_u32("skip_bottles")) {
         if (!this->initialized) {
             this->has_met_before = TRUE;
-            ability_unlock(moleTable[this->actorTypeSpecificField-9].ability);
+            s8 ability = moleTable[this->actorTypeSpecificField-9].ability;
+            ability_unlock(ability);
+            if (ability == ABILITY_6_EGGS) {
+                item_set(ITEM_D_EGGS, 50);
+            } else if (ability == ABILITY_9_FLIGHT) {
+                item_set(ITEM_F_RED_FEATHER, 25);
+            } else if (ability == ABILITY_12_WONDERWING) {
+                item_set(ITEM_10_GOLD_FEATHER, 5);
+            }
         }
     }
 }

@@ -30,7 +30,12 @@ void pre_controller_copyFaceButtons(s32 controller_index, s32 dst[6]) {
 
 // L + R + B to skip dialog
 RECOMP_PATCH s32 func_8024E5E8(s32 arg0, s32 arg1){
-    if (recomp_get_config_u32("skip_text") == 2 && arg1 == 3) {
+    int textId = gcdialog_getCurrentTextId();
+    if (
+        recomp_get_config_u32("skip_text") == 2 && arg1 == 3 &&
+        textId != 3081 && // Boggy Second Race 
+        textId != 3171 // Vile Challenge 
+    ) {
         return 1;
     }
 
