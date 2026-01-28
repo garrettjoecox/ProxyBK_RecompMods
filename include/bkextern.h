@@ -129,3 +129,4 @@ extern s32 D_802810E0[4][5];
 extern OSContPad pfsManagerContPadData[4];
 extern s32 D_8037D160;
 extern s32 D_8037D164;
+extern s32 gameNumber;
