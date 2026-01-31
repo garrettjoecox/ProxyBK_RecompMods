@@ -1,0 +1,9 @@
+{
+    "name": "ExtendedDrawDistance",
+    "version_number": "0.0.3",
+    "website_url": "https://github.com/garrettjoecox/ProxyBK_RecompMods",
+    "description": "Increases the game's draw distance.",
+    "dependencies": [
+        "Dario-Asset_Expansion_Pak-0.0.2"
+    ]
+}

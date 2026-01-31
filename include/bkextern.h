@@ -99,6 +99,20 @@ typedef struct{
     s8 ability;
 } ChMoleDescription;
 
+extern struct {
+    Cube *cubes;
+    f32 margin;
+    s32 min[3];
+    s32 max[3];
+    s32 stride[2];
+    s32 cubeCnt; 
+    s32 unk2C;
+    s32 width[3];
+    Cube *unk3C; // fallback cube?
+    Cube *unk40; // some other fallback cube?
+    s32 unk44; // index of some sort
+} sCubeList;
+
 
 void func_80315C90(GcZoombox *this, s32 arg1);
 s32 globalTimer_getTime(void);
@@ -125,6 +139,16 @@ int ability_isUnlocked(enum ability_e uid);
 void fileProgressFlag_set(enum file_progress_e, bool);
 int gcdialog_getCurrentTextId(void);
 int gctransition_done(void);
+void func_80302634(Gfx **gfx, Mtx **mtx, Vtx **vtx, s32 arg3[3], s32 arg4[3], s32 arg5[3]);
+void func_80308D2C(Gfx **gfx, Mtx **mtx, Vtx **vtx);
+void cube_positionToIndices(s32 arg0[3], f32 arg1[3]);
+void func_80308EC8(void);
+void func_8032D510(Cube *, Gfx **, Mtx **, Vtx **);
+s32 mapSpecificFlags_validateCRC1(void);
+void func_8032D3A8(void);
+void func_80301F50(Gfx **gfx, Mtx **mtx, Vtx **vtx, s32 arg3[3], s32 arg4[3], s32 arg5[3]);
+s32 getGameMode(void);
+bool subaddie_playerIsWithinSphereAndActive(Actor *this, s32 dist);
 
 extern ChMoleDescription moleTable[];
 extern PfsManagerControllerData D_80281138[4];
@@ -135,3 +159,9 @@ extern s32 D_8037D164;
 extern s32 gameNumber;
 extern u8 bsDroneEnterSubstate;
 extern u8 D_8037D468;
+extern s32 D_80383710;
+extern f32 D_8038370C;
+extern f32 D_80383708;
+extern f32 sViewportFrustumPlanes[4][4];
+extern f32 sViewportPosition[3];
+extern u8 D_803858B0;

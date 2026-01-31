@@ -1,0 +1,40 @@
+[manifest]
+id = "ProxyMM_ExtendedDrawDistance"
+version = "0.0.3"
+display_name = "ExtendedDrawDistance"
+description =  """
+Increases the game's draw distance so actors, collectibles, and scenery
+remain visible at greater ranges.
+"""
+short_description = "Increases the game's draw distance."
+authors = [ "ProxySaw" ]
+game_id = "bk"
+minimum_recomp_version = "0.0.1"
+dependencies = [
+    "bk_recomp_asset_expansion_pak:0.0.2"
+]
+optional_dependencies = []
+native_libraries = []
+
+[inputs]
+elf_path = "../../build/packages/ExtendedDrawDistance/mod.elf"
+mod_filename = "ProxyBK_ExtendedDrawDistance"
+func_reference_syms_file = "../../BanjoRecompSyms/bk.us.rev0.syms.toml"
+data_reference_syms_files = [ "../../BanjoRecompSyms/bk.us.rev0.datasyms.toml" ]
+additional_files = [ "thumb.png" ]
+
+[[manifest.config_options]]
+id = "extend_draw_distance"
+name = "Extend Draw Distance"
+description = "Increase the rendering draw distance so distant actors, collectibles and scenery remain visible."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "On"
+
+[[manifest.config_options]]
+id = "extend_update_distance"
+name = "Extend Update Distance (Experimental)"
+description = "Increase the distance at which NPCs and other actors are updated, keeping them active farther from the player. WARNING: This should be considered experimental and may have unintended side effects."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
