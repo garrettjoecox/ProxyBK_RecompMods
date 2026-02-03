@@ -1,18 +1,29 @@
 [manifest]
 id = "ProxyMM_TransformAnywhere"
-version = "0.0.2"
+version = "0.0.3"
 display_name = "TransformAnywhere"
 description =  """
-Transform into Mumbo's forms anywhere
-
+Allowed Transformations: All
 - D-pad Up: Wishwashy
 - D-pad Down: Croc (or Walrus)
 - D-pad Left: Bee
 - D-pad Right: Termite (or Pumpkin)
+Allowed Transformations: Current World
+- D-pad Up: Transform to the form from the current world, and back to Banjo.
+Allowed Transformations: Banjo
+- D-pad Up: Transform instantly back to Banjo only. Requires going back to Mumbo to transform.
+Allowed Transformations: None
+- The mod is effectively disabled
 
-D-pad Up as any form returns you to Banjo. Optionally, you can require L to be held while pressing D-pad directions by enabling "Require L to Transform" in the mod settings.
+Token Payment
+- Yes: Requires having paid Mumbo for the transformation in the current game file
+- No: Does not require having paid Mumbo
+
+Button Mode
+- "D-pad": Only requires that the D-pad button alone be pressed for the transformation
+- "L + D-pad": Requires L to be held while pressing D-pad directions for the transformation
 """
-short_description = "Transform into Mumbo's forms anywhere"
+short_description = "Transform into Mumbo's forms anywhere, with optional restrictions"
 authors = [ "ProxySaw" ]
 game_id = "bk"
 minimum_recomp_version = "0.0.1"
@@ -28,9 +39,25 @@ data_reference_syms_files = [ "../../BanjoRecompSyms/bk.us.rev0.datasyms.toml" ]
 additional_files = [ "thumb.png" ]
 
 [[manifest.config_options]]
-id = "require_l_to_transform"
-name = "Require L to Transform"
-description = "Require holding the L button while pressing D-pad directions to transform"
+id = "allowed_transformations"
+name = "Allowed Transformations"
+description = "Choose which transformations are allowed"
 type = "Enum"
-options = [ "Off", "On" ]
-default = "Off"
+options = [ "All", "Current World", "Banjo", "None" ]
+default = "All"
+
+[[manifest.config_options]]
+id = "token_payment"
+name = "Token Payment"
+description = "Choose whether token payment is required for transformations"
+type = "Enum"
+options = [ "No", "Yes" ]
+default = "Yes"
+
+[[manifest.config_options]]
+id = "button_mode"
+name = "Button Mode"
+description = "Choose the button mode for transformations"
+type = "Enum"
+options = [ "D-pad", "L + D-pad" ]
+default = "D-pad"
