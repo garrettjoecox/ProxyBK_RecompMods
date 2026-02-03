@@ -153,6 +153,13 @@ bool subaddie_playerIsWithinSphereAndActive(Actor *this, s32 dist);
 void func_802A1B88(void);
 s32 fileProgressFlag_getAndSet(enum file_progress_e index, s32 set);
 bool func_8028FB88(enum transformation_e xform_id);
+s32 item_adjustByDiffWithHud(enum item_e item, s32 diff);
+void __chMumbo_textCallback(ActorMarker *caller, enum asset_e text_id, s32 arg2);
+void func_8028F918(s32);
+void gcpausemenu_80314AC8(s32);
+void func_8025A7DC(enum comusic_e);
+void chMumbo_func_802D1B8C(Actor *this, enum transformation_e transform_id);
+enum file_progress_e __bkProgId_from_transformationId(enum transformation_e trans_id);
 
 extern ChMoleDescription moleTable[];
 extern PfsManagerControllerData D_80281138[4];
@@ -172,3 +179,4 @@ extern u8 D_803858B0;
 extern u8 sHasWarnedBanjoAboutDetransform;
 extern u8 D_8037DDF3;
 extern u8 D_8037DDF1;
+extern u8 D_8037DDF0;

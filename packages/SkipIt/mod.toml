@@ -1,6 +1,6 @@
 [manifest]
 id = "ProxyMM_SkipIt"
-version = "0.0.2"
+version = "0.0.3"
 display_name = "SkipIt"
 description =  """
 Various cutscene skips and speedups
@@ -8,6 +8,7 @@ Various cutscene skips and speedups
 - Skip cutscenes
 - Speedup or Skip most dialog
 - Skip bottles interactions
+- Skip Mumbo interactions and transformations
 """
 short_description = "Various cutscene skips and speedups"
 authors = [ "ProxySaw" ]
@@ -25,11 +26,11 @@ data_reference_syms_files = [ "../../BanjoRecompSyms/bk.us.rev0.datasyms.toml" ]
 additional_files = [ "thumb.png" ]
 
 [[manifest.config_options]]
-id = "skip_cutscenes"
+id = "skip_cutscene_mode"
 name = "Skip Cutscenes"
 description = "Skip all cutscenes"
 type = "Enum"
-options = [ "Off", "On" ]
+options = [ "Off", "Instantly", "Press Start" ]
 default = "Off"
 
 [[manifest.config_options]]
@@ -52,6 +53,14 @@ default = "Off"
 id = "skip_bottles"
 name = "Skip Bottles Interactions"
 description = "As soon as you meet the requirements, you'll obtain the abilities without going through Bottles' interactions"
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"
+
+[[manifest.config_options]]
+id = "skip_mumbo"
+name = "Skip Mumbo Interactions"
+description = "Skip Mumbo's interactions and transformation sequences"
 type = "Enum"
 options = [ "Off", "On" ]
 default = "Off"
