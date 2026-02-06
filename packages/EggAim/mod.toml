@@ -1,12 +1,11 @@
 [manifest]
 id = "ProxyMM_EggAim"
-version = "0.0.1"
+version = "0.0.2"
 display_name = "EggAim"
 description =  """
 Back-ported Egg Aim move from Banjo Tooie, allowing you to fire eggs in first person. (Press Z to fire)
 
-Known Issues:
-- Currently the eggs fail to travel downwards, they clamp to banjo's Y position. Will fix in the future
+Also includes an option to fix a vanilla issue where shooting while crouching causes the character always shoot slightly left.
 """
 short_description = "Fire eggs in first person."
 authors = [ "ProxySaw" ]
@@ -22,3 +21,11 @@ mod_filename = "ProxyBK_EggAim"
 func_reference_syms_file = "../../BanjoRecompSyms/bk.us.rev0.syms.toml"
 data_reference_syms_files = [ "../../BanjoRecompSyms/bk.us.rev0.datasyms.toml" ]
 additional_files = [ "thumb.png" ]
+
+[[manifest.config_options]]
+id = "fix_crouch_shooting_left"
+name = "Fix Crouch Shooting Left"
+description = "Fixes a vanilla issue where shooting while crouching causes the character always shoot slightly left."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"

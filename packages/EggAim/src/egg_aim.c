@@ -190,9 +190,9 @@ RECOMP_PATCH void fxegg_head_spawn(void){
     animsprite_loop(sp78);
 
     func_80344E18(sp77, 1);
-    func_80344EE4(sp77, 0.0f, 0.0f);
+    func_80344EE4(sp77, 0.0f, firingEggFromFirstPerson ? -99999.0f : 0.0f);
     func_80344D94(sp77, sp50);
-    if (!firingEggFromFirstPerson) {
+    if (!firingEggFromFirstPerson && !recomp_get_config_u32("fix_crouch_shooting_left")) {
         sp44[1] += 4.0f;
     }
     func_80256E24(sp5C, theta, sp44[1], 0.0f, 0.0f, 800.0f);

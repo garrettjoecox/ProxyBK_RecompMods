@@ -196,6 +196,10 @@ void commonParticle_applyIndexStash(void);
 s32 func_803531C8(u8 projectile_indx, s32 arg1);
 void func_80344E7C(u8 index, f32 dst[3]);
 void fxegg_shatter(u8 projectile_indx);
+s32 func_80344EC0(u8 index);
+void func_8032320C(void);
+bool fxegg_isCollidingWithPlayer(f32 arg0[3]);
+s32 chCollectible_collectEgg(ActorProp *arg0);
 
 extern ChMoleDescription moleTable[];
 extern PfsManagerControllerData D_80281138[4];
