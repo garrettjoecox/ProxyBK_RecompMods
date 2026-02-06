@@ -1,6 +1,9 @@
 #include "functions.h"
 #include "variables.h"
 #include "core2/ba/physics.h"
+#include "core2/abilityprogress.h"
+#include "core2/commonParticle.h"
+
 
 typedef struct GcZoombox {
     u8 unk0[0x30];  //string1
@@ -113,6 +116,17 @@ extern struct {
     s32 unk44; // index of some sort
 } sCubeList;
 
+extern struct{
+    f32 position[3]; //first_person_position
+    f32 rotation[3];
+    f32 zoomed_in_position[3];
+    f32 zoomed_in_rotation[3];
+    f32 zoomed_out_position[3];
+    f32 zoomed_out_rotation[3];
+    f32 transistion_timer;
+    u8 state;
+} D_8037DC60;
+
 
 void func_80315C90(GcZoombox *this, s32 arg1);
 s32 globalTimer_getTime(void);
@@ -160,6 +174,28 @@ void gcpausemenu_80314AC8(s32);
 void func_8025A7DC(enum comusic_e);
 void chMumbo_func_802D1B8C(Actor *this, enum transformation_e transform_id);
 enum file_progress_e __bkProgId_from_transformationId(enum transformation_e trans_id);
+void * osPhysicalToVirtual(u32);
+s32 can_egg(void);
+void ability_use(enum ability_used ability);
+s32 item_empty(enum item_e item);
+int commonParticle_new(enum common_particle_e particle_id, int arg1);
+void item_dec(enum item_e item);
+void fxegg_collide(s32 arg0, ActorMarker *marker, s32 arg2);
+u8 func_8033E93C(void);
+ActorMarker *func_8033E840(void);
+void func_803300B8(ActorMarker *marker, MarkerCollisionFunc method);
+void func_8033EA40(s32, f32);
+void func_80244D94(f32[3], f32[3], f32[3], u32, f32);
+f32 func_8033EA14(s32);
+void projectile_getPosition(u8 indx, f32 position[3]);
+void commonParticle_stashCurrentIndex(void);
+void func_803541C0(s32 arg0);
+void func_803541CC(s32 arg0);
+void func_80354030(f32[3], f32);
+void commonParticle_applyIndexStash(void);
+s32 func_803531C8(u8 projectile_indx, s32 arg1);
+void func_80344E7C(u8 index, f32 dst[3]);
+void fxegg_shatter(u8 projectile_indx);
 
 extern ChMoleDescription moleTable[];
 extern PfsManagerControllerData D_80281138[4];
@@ -180,3 +216,4 @@ extern u8 sHasWarnedBanjoAboutDetransform;
 extern u8 D_8037DDF3;
 extern u8 D_8037DDF1;
 extern u8 D_8037DDF0;
+extern AnimSpriteStep D_803726A0[10];

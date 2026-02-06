@@ -1,0 +1,24 @@
+[manifest]
+id = "ProxyMM_EggAim"
+version = "0.0.1"
+display_name = "EggAim"
+description =  """
+Back-ported Egg Aim move from Banjo Tooie, allowing you to fire eggs in first person. (Press Z to fire)
+
+Known Issues:
+- Currently the eggs fail to travel downwards, they clamp to banjo's Y position. Will fix in the future
+"""
+short_description = "Fire eggs in first person."
+authors = [ "ProxySaw" ]
+game_id = "bk"
+minimum_recomp_version = "0.0.1"
+dependencies = []
+optional_dependencies = []
+native_libraries = []
+
+[inputs]
+elf_path = "../../build/packages/EggAim/mod.elf"
+mod_filename = "ProxyBK_EggAim"
+func_reference_syms_file = "../../BanjoRecompSyms/bk.us.rev0.syms.toml"
+data_reference_syms_files = [ "../../BanjoRecompSyms/bk.us.rev0.datasyms.toml" ]
+additional_files = [ "thumb.png" ]
