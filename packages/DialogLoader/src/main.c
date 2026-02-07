@@ -53,10 +53,35 @@ void pre_dialogBin_get(enum asset_e text_id) {
 
     recomp_printf("[ProxyBK_DialogLoader] Checking textId: 0x%04X (%d)\n", text_id, text_id);
 
+    // Print the original first 1000 bytes of the dialog data for debugging purposes
+    // u8* originalText = assetcache_get(text_id);
+    // for (int i = 0; i < 221; i++) {
+    //     recomp_printf("%02X ", originalText[i]);
+    //     if ((i + 1) % 16 == 0) {
+    //         recomp_printf("\n");
+    //     }
+    // }
+    // recomp_printf("\n");
+    // assetcache_release(originalText);
+
+    // Clear the buffer before use
+    for (int i = 0; i < sizeof(dialogBuffer); i++) {
+        dialogBuffer[i] = 0;
+    }
+
     if (DialogLoader_GetDialog(text_id, dialogBuffer)) {
         recomp_printf("[ProxyBK_DialogLoader] Found textId: 0x%04X (%d)\n", text_id, text_id);
         bk_recomp_aep_register_replacement(text_id, dialogBuffer);
         replacedTextId = text_id;
+
+        // // Print the first 1000 bytes of the new dialog data for debugging purposes
+        // for (int i = 0; i < 221; i++) {
+        //     recomp_printf("%02X ", dialogBuffer[i]);
+        //     if ((i + 1) % 16 == 0) {
+        //         recomp_printf("\n");
+        //     }
+        // }
+        // recomp_printf("\n");
     }
 }
 

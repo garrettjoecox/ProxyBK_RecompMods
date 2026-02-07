@@ -1,6 +1,6 @@
 [manifest]
 id = "ProxyBK_DialogLoader"
-version = "0.0.1"
+version = "0.0.2"
 display_name = "DialogLoader"
 description =  """
 A loader for dialog replacements.
@@ -17,7 +17,7 @@ dependencies = [
     "bk_recomp_asset_expansion_pak:0.0.2"
 ]
 native_libraries = [
-    { name = "ProxyBK_DialogLoader001", funcs = [
+    { name = "ProxyBK_DialogLoader002", funcs = [
         "DialogLoader_SetModsFolderPath",
         "DialogLoader_RefreshAll",
         "DialogLoader_RefreshDialog",
