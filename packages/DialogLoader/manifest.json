@@ -1,0 +1,9 @@
+{
+    "name": "DialogLoader",
+    "version_number": "0.0.1",
+    "website_url": "https://github.com/garrettjoecox/ProxyBK_RecompMods",
+    "description": "A loader for dialog replacements.",
+    "dependencies": [
+        "Dario-Asset_Expansion_Pak-0.0.2"
+    ]
+}

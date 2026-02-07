@@ -1,0 +1,43 @@
+[manifest]
+id = "ProxyBK_DialogLoader"
+version = "0.0.1"
+display_name = "DialogLoader"
+description =  """
+A loader for dialog replacements.
+
+Place dialog replacement files in `mods/DialogLoader/dialog` and this library will automatically load them into the game.
+
+Refer to the README for more details.
+"""
+short_description = "A loader for dialog replacements."
+authors = [ "ProxySaw" ]
+game_id = "bk"
+minimum_recomp_version = "0.0.1"
+dependencies = [
+    "bk_recomp_asset_expansion_pak:0.0.2"
+]
+native_libraries = [
+    { name = "ProxyBK_DialogLoader001", funcs = [
+        "DialogLoader_SetModsFolderPath",
+        "DialogLoader_RefreshAll",
+        "DialogLoader_RefreshDialog",
+        "DialogLoader_RefreshQuizQ",
+        "DialogLoader_GetDialog",
+        "DialogLoader_GetQuizQ"
+    ] }
+]
+
+[inputs]
+elf_path = "../../build/packages/DialogLoader/mod.elf"
+mod_filename = "ProxyBK_DialogLoader"
+func_reference_syms_file = "../../BanjoRecompSyms/bk.us.rev0.syms.toml"
+data_reference_syms_files = [ "../../BanjoRecompSyms/bk.us.rev0.datasyms.toml" ]
+additional_files = [ "thumb.png" ]
+
+[[manifest.config_options]]
+id = "debug_mode"
+name = "Debug Mode"
+description = "Loads all dialog replacements every time a dialog is requested, useful for testing but may cause performance issues if left on."
+type = "Enum"
+options = [ "Off", "On" ]
+default = "Off"

@@ -95,6 +95,72 @@ typedef struct GcZoombox {
     u32 pad1A4_9:10;
 } GcZoombox; //size 0x1A8
 
+extern struct {
+    char output[0x100];
+    u8 *dialog_bin_ptr;
+    BKDialog *dialog[2]; // string ptr
+    char *string[2]; // current_string
+    u8 string_count[2]; // zoombox string_count
+    s8 string_cmd[2]; // current_cmd
+    u8 string_index[2]; // current_string_index
+    struct15s unk11A[2];
+    GcZoombox *zoombox[2];
+    s16 zoomboxYPosition[2];
+
+    union {
+        struct {
+            u8 unk128_31;
+            u8 state;
+            u8 unk128_15;
+            u8 active_zoombox: 1; // active_zoombox_index
+            u8 unk128_6: 1;
+            u8 queueZoomboxYPositionModify: 1;
+            u8 zoomboxYPositionIndexDecremented: 1;
+            u8 unk128_3: 1;
+            u8 pad128_2: 2;
+            u8 unk128_0: 1;
+            u8 unk12C_31: 2;
+            u8 unk12C_29: 2;
+            u8 unk12C_27: 2;
+            u8 unk12C_25: 2;
+            s8 playerHasConfirmed: 8;
+            u8 unk12C_15: 4;
+            u8 unk12C_11: 4;
+            u8 pad12C_7: 8;
+        } u8;
+        struct {
+            u32 unk128_31: 8;
+            u32 state: 8;
+            u32 unk128_15: 8;
+            u32 active_zoombox: 1; // active_zoombox_index
+            u32 unk128_6: 1;
+            u32 queueZoomboxYPositionModify: 1;
+            u32 zoomboxYPositionIndexDecremented: 1;
+            u32 unk128_3: 1;
+            u32 pad128_2: 2;
+            u32 unk128_0: 1;
+            u32 unk12C_31: 2;
+            u32 unk12C_29: 2;
+            u32 unk12C_27: 2;
+            u32 unk12C_25: 2;
+            s32 playerHasConfirmed: 8;
+            u32 unk12C_15: 4;
+            u32 unk12C_11: 4;
+            u32 pad12C_7: 8;
+        };
+    };
+
+    s16 currentTextId;
+    s8 yPositionModifierIndex;
+    // u8 pad133[0x1];
+    ActorMarker *caller;
+    s32 unk138;
+    void (* currentCallback)(ActorMarker *, s32, s32);
+    void (* unk140)(ActorMarker *, s32, s32);
+    s32 (* conditionalCallback)(ActorMarker *, s32, s32);
+    struct14s unk148[4];
+} g_Dialog;
+
 typedef struct{
     s16 teach_text_id;
     s16 refresher_text_id;
@@ -126,6 +192,12 @@ extern struct{
     f32 transistion_timer;
     u8 state;
 } D_8037DC60;
+
+extern struct {
+    u8 unk0;
+    char *ptr;
+    s32 index;
+} s_dialogBin;
 
 
 void func_80315C90(GcZoombox *this, s32 arg1);
@@ -200,6 +272,10 @@ s32 func_80344EC0(u8 index);
 void func_8032320C(void);
 bool fxegg_isCollidingWithPlayer(f32 arg0[3]);
 s32 chCollectible_collectEgg(ActorProp *arg0);
+void assetcache_release(void *);
+void gcdebugText_showValue(s32 displayValue);
+void gcdebugText_showLargeValue(s32 colorSelect, s32 displayValue);
+void gcdebugText_showHexValue(u32 displayValue);
 
 extern ChMoleDescription moleTable[];
 extern PfsManagerControllerData D_80281138[4];
